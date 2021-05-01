@@ -3,7 +3,7 @@ class PaintingsController < ApplicationController
 
   # GET /paintings
   def index
-    @paintings = Painting.all
+    @paintings = Painting.includes(:colored_polygons).all
 
     render json: @paintings
   end
