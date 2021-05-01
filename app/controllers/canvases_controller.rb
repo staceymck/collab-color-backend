@@ -3,7 +3,7 @@ class CanvasesController < ApplicationController
 
   # GET /canvases
   def index
-    @canvases = Canvas.all
+    @canvases = Canvas.includes(:polygons).all
 
     render json: @canvases
   end
