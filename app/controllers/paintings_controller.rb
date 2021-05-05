@@ -3,7 +3,7 @@ class PaintingsController < ApplicationController
 
   # GET /paintings
   def index
-    @paintings = Painting.includes(:colored_polygons).all
+    @paintings = Painting.includes(:colored_polygons => :polygon).all #joins doesn't work here
 
     render json: @paintings
   end
