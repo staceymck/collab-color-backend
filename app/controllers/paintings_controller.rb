@@ -3,9 +3,15 @@ class PaintingsController < ApplicationController
 
   # GET /paintings
   def index
-    @paintings = Painting.includes(:colored_polygons => :polygon).all #joins doesn't work here
+    sorted_paintings = Painting.applySort(params[:q]).includes(:colored_polygons => :polygon).all
+    @paintings = sorted_paintings.page(page).per(18)
+    #@paintings = Painting.includes(:colored_polygons => :polygon).all #joins doesn't work here
 
-    render json: @paintings
+    render json: {
+      paintings: ActiveModel::Serializer::CollectionSerializer.new(@paintings, serializer: PaintingSerializer),
+      page: @paintings.current_page,
+      pages: @paintings.total_pages
+    }
   end
 
   # GET /paintings/1
@@ -42,6 +48,10 @@ class PaintingsController < ApplicationController
   private
     def set_painting
       @painting = Painting.find(params[:id])
+    end
+
+    def page
+      params[:page] ? params[:page].to_i : 1
     end
 
     def painting_params
