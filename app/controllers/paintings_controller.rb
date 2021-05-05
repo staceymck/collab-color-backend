@@ -15,13 +15,14 @@ class PaintingsController < ApplicationController
 
   # POST /paintings
   def create
+    byebug
     @painting = Painting.new(painting_params)
 
-    if @painting.save
-      render json: @painting, status: :created, location: @painting
-    else
-      render json: @painting.errors, status: :unprocessable_entity
-    end
+    # if @painting.save
+    #   render json: @painting, status: :created, location: @painting
+    # else
+    #   render json: @painting.errors, status: :unprocessable_entity
+    # end
   end
 
   # PATCH/PUT /paintings/1
@@ -39,13 +40,11 @@ class PaintingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_painting
       @painting = Painting.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def painting_params
-      params.require(:painting).permit(:canvas_id)
+      params.require(:painting).permit(:canvas_id, :colored_polygons => [:id, :color])
     end
 end
