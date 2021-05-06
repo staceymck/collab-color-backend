@@ -20,15 +20,13 @@ class PaintingsController < ApplicationController
 
   # POST /paintings
   def create
-    byebug
-   # Do I need to pass in canvas_id and attributes hash here, not the painting_params as is?
-   # @painting = Painting.new(painting_params)
+    @painting = Painting.new(painting_params)
 
-    # if @painting.save
-    #   render json: @painting, status: :created, location: @painting
-    # else
-    #   render json: @painting.errors, status: :unprocessable_entity
-    # end
+    if @painting.save
+      render json: @painting, status: :created, location: @painting
+    else
+      render json: @painting.errors, status: :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /paintings/1
