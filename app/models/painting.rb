@@ -1,6 +1,6 @@
 class Painting < ApplicationRecord
   belongs_to :canvas
-  has_many :colored_polygons
+  has_many :colored_polygons, dependent: :destroy
   accepts_nested_attributes_for :colored_polygons
   
   scope :newest, -> { order(created_at: :desc) }
