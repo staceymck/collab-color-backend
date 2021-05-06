@@ -5,12 +5,11 @@ class PaintingsController < ApplicationController
   def index
     sorted_paintings = Painting.applySort(params[:q]).includes(:colored_polygons => :polygon).all
     @paintings = sorted_paintings.page(page).per(18)
-    #@paintings = Painting.includes(:colored_polygons => :polygon).all #joins doesn't work here
 
     render json: {
       paintings: ActiveModel::Serializer::CollectionSerializer.new(@paintings, serializer: PaintingSerializer),
-      page: @paintings.current_page,
-      pages: @paintings.total_pages
+      current: @paintings.current_page,
+      total: @paintings.total_pages
     }
   end
 
@@ -22,7 +21,8 @@ class PaintingsController < ApplicationController
   # POST /paintings
   def create
     byebug
-    @painting = Painting.new(painting_params)
+   # Do I need to pass in canvas_id and attributes hash here, not the painting_params as is?
+   # @painting = Painting.new(painting_params)
 
     # if @painting.save
     #   render json: @painting, status: :created, location: @painting
@@ -55,6 +55,6 @@ class PaintingsController < ApplicationController
     end
 
     def painting_params
-      params.require(:painting).permit(:canvas_id, :colored_polygons => [:id, :color])
+      params.require(:painting).permit(:canvas_id, :colored_polygons_attributes => [:polygon_id, :color])
     end
 end
