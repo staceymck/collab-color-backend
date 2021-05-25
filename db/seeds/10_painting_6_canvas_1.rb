@@ -124,7 +124,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 31
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 32
     },
     {
@@ -204,7 +204,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 51
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 52
     },
     {
@@ -216,7 +216,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 54
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 55
     },
     {
@@ -268,7 +268,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 67
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 68
     },
     {
@@ -304,7 +304,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 76
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 77
     },
     {
@@ -360,7 +360,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 90
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 91
     },
     {
@@ -424,7 +424,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 106
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 107
     },
     {
@@ -444,7 +444,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 111
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 112
     },
     {
@@ -488,7 +488,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 122
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 123
     },
     {
@@ -496,7 +496,7 @@ Painting.all[6].colored_polygons.create!([
         polygon_id: 124
     },
     {
-        color: "#564b7",
+        color: "#564b7c",
         polygon_id: 125
     },
     {
