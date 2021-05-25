@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # resources :colored_polygons
+  root 'canvases#index'
   resources :paintings
-  # resources :polygons
   resources :canvases
 end
